@@ -7,15 +7,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SellerType extends AbstractType
+class CommentsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('duration')
-            ->add('user')
-        ;
+            ->add('contenu')
+            ->add('author')
+            ->add('date');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

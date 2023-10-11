@@ -2,19 +2,15 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Blog;
+use App\Entity\Comments;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class BlogCrudController extends AbstractCrudController
+class CommentsCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Blog::class;
+        return Comments::class;
     }
 
 
@@ -22,13 +18,8 @@ class BlogCrudController extends AbstractCrudController
     {
         return [
             //IdField::new('id'),
-            TextField::new('name'),
-            AssociationField::new('tags'),
-            TextEditorField::new('contenu'),
-            TextField::new('author'),
-            TextareaField::new('imageFile')
-                ->setFormType(VichImageType::class)
-                ->setLabel('image')
+            TextEditorField::new('contenu')
+
         ];
     }
 

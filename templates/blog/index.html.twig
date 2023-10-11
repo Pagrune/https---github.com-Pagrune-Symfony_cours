@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Blogs{% endblock %}
+
+{% block body %}
+    {% for post in blog %}
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ vich_uploader_asset(post) }}"
+                 alt="{{ post.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.name }}</h5>
+                <p class="card-text">{{ post.contenu | raw }}</p>
+                <a href="{{ path('detail_blog', {id:post.id}) }}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

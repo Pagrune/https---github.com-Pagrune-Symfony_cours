@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+    <h1>Produits</h1>
+
+        {% for product in products %}
+
+                <p>{{ product.name }}</p>
+                <p>{{ product.price }}€</p>
+                <p>{{ product.description | raw }}</p>
+                <img src="{{ vich_uploader_asset(product) }}"></img>
+
+        {% else %}
+            <p>
+                <td colspan="6">no records found</td>
+            </p>
+        {% endfor %}
+
+{% endblock %}
